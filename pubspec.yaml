@@ -16,6 +16,10 @@ dependencies:
 
   
   cupertino_icons: ^1.0.8
+  flutter_screenutil: ^5.9.3
+  iconsax: ^0.0.8
+  http: ^1.4.0
+  provider: ^6.1.5
 
 dev_dependencies:
   flutter_test:
@@ -31,5 +35,12 @@ flutter:
   uses-material-design: true
 
   assets:
-  - assets/images/google.jpeg
-  - assets/images/facebook.jpeg
+  - assets/images/google.png
+  - assets/images/facebook.png
+  - assets/images/breakfast.png
+  - assets/images/lunch.png
+  - assets/images/evening.png
+  - assets/images/dinner.png
+  - assets/images/desert.png
+  - assets/images/juice.png
+  - assets/images/chef.png

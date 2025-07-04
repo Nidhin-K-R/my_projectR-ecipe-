@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_project/viewmodel/providers/app_providers.dart';
+import 'package:provider/provider.dart';
 
 class CustomTextfields extends StatelessWidget {
   final TextEditingController controller;
@@ -22,15 +24,30 @@ class CustomTextfields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      validator: validator,
-      obscureText: obscureText,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        hintText: labelText,
-        icon: Icon(icon),
-        suffixIcon: suffixIcon ? Icon(Icons.visibility) : null,
+    return Consumer<PasswordProvider>(
+      builder: (context, value, child) => TextFormField(
+        controller: controller,
+        validator: validator,
+        obscureText: obscureText
+            ? value.flag
+                  ? false
+                  : true
+            : false,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          hintText: labelText,
+          icon: Icon(icon),
+          suffixIcon: suffixIcon
+              ? IconButton(
+                  onPressed: () {
+                    value.changeIcon();
+                  },
+                  icon: value.flag
+                      ? Icon(Icons.visibility)
+                      : Icon(Icons.visibility_off),
+                )
+              : null,
+        ),
       ),
     );
   }

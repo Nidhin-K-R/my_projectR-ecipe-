@@ -5,13 +5,14 @@ import 'package:my_project/core/utils/extension.dart';
 import 'package:my_project/core/utils/form_validators.dart';
 import 'package:my_project/core/widgets/auth_button.dart';
 import 'package:my_project/core/widgets/custom_textfields.dart';
-import 'package:my_project/core/widgets/submit_button.dart';
 import 'package:my_project/view/home_screen.dart';
-import 'package:my_project/view/signup_screen.dart';
+import 'package:my_project/view/login_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+import '../core/widgets/submit_button.dart';
 
+class SignupScreen extends StatelessWidget {
+  SignupScreen({super.key});
+  final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -22,24 +23,45 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 70.h, horizontal: 30.w),
+            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
             child: Form(
               key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Hello Again!",
+                    "Create an account",
                     style: TextStyle(
-                      fontSize: 40.r,
+                      fontSize: 30.r,
+
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  SizedBox(height: 5.h),
                   Text(
-                    "Welcome back you've missed!",
-                    style: TextStyle(fontSize: 20.r, color: Colors.black54),
+                    "Let's help you set up your account,\nit won't take long.",
+                    style: TextStyle(
+                      fontSize: 15.r,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.grey,
+                    ),
                   ),
                   SizedBox(height: 70.h),
+                  Text(
+                    "Username",
+                    style: TextStyle(
+                      fontSize: 15.r,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  CustomTextfields(
+                    controller: usernameController,
+                    labelText: "Enter Username",
+                    icon: Iconsax.user,
+
+                    validator: FormValidators.validateName,
+                  ),
+                  SizedBox(height: 15.h),
                   Text(
                     "Email",
                     style: TextStyle(
@@ -70,24 +92,12 @@ class LoginScreen extends StatelessWidget {
                     suffixIcon: true,
                     validator: FormValidators.validatePassword,
                   ),
-                  SizedBox(height: 5.h),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot password?",
-                      style: TextStyle(
-                        color: Colors.lightGreen,
-                        fontSize: 15.r,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 25.h),
+                  SizedBox(height: 30.h),
                   SubmitButton(
-                    text: "Log in",
+                    text: "Sign Up",
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        context.showSnackBar("loggin successful");
+                        context.showSnackBar("signup successful");
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (ctx) => HomeScreen()),
@@ -130,10 +140,9 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: 10.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-
                     children: [
                       Text(
-                        "Don't have an account?",
+                        "Already have an account?",
                         style: TextStyle(
                           fontSize: 18.r,
                           color: Colors.black54,
@@ -145,11 +154,11 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (ctx) => SignupScreen()),
+                            MaterialPageRoute(builder: (ctx) => LoginScreen()),
                           );
                         },
                         child: Text(
-                          "SignUp",
+                          "LogIn",
                           style: TextStyle(
                             color: Colors.lightGreen,
                             fontSize: 19.r,

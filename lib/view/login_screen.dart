@@ -15,6 +15,9 @@ class LoginScreen extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final emailFocusNode = FocusNode();
+  final passwordFocusNode = FocusNode();
+  final buttonFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +53,8 @@ class LoginScreen extends StatelessWidget {
                   CustomTextfields(
                     controller: emailController,
                     labelText: "Enter Email",
+                    focusNode: emailFocusNode,
+                    onFocus: passwordFocusNode,
                     icon: Iconsax.message,
                     keyboardType: TextInputType.emailAddress,
                     validator: FormValidators.validateEmail,
@@ -66,6 +71,8 @@ class LoginScreen extends StatelessWidget {
                     controller: passwordController,
                     labelText: "Enter Password",
                     icon: Iconsax.key,
+                    focusNode: passwordFocusNode,
+                    onFocus: buttonFocusNode,
                     obscureText: true,
                     suffixIcon: true,
                     validator: FormValidators.validatePassword,
@@ -85,6 +92,7 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: 25.h),
                   SubmitButton(
                     text: "Log in",
+                    focusNode: buttonFocusNode,
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         context.showSnackBar("loggin successful");

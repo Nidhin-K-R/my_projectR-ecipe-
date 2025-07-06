@@ -7,7 +7,6 @@ import 'package:my_project/core/widgets/auth_button.dart';
 import 'package:my_project/core/widgets/custom_textfields.dart';
 import 'package:my_project/view/home_screen.dart';
 import 'package:my_project/view/login_screen.dart';
-
 import '../core/widgets/submit_button.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -16,6 +15,10 @@ class SignupScreen extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final usernameFocusNode = FocusNode();
+  final emailFocusNode = FocusNode();
+  final passwordFocusNode = FocusNode();
+  final buttonFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +61,8 @@ class SignupScreen extends StatelessWidget {
                     controller: usernameController,
                     labelText: "Enter Username",
                     icon: Iconsax.user,
-
+                    focusNode: usernameFocusNode,
+                    onFocus: emailFocusNode,
                     validator: FormValidators.validateName,
                   ),
                   SizedBox(height: 15.h),
@@ -72,6 +76,8 @@ class SignupScreen extends StatelessWidget {
                   CustomTextfields(
                     controller: emailController,
                     labelText: "Enter Email",
+                    focusNode: emailFocusNode,
+                    onFocus: passwordFocusNode,
                     icon: Iconsax.message,
                     keyboardType: TextInputType.emailAddress,
                     validator: FormValidators.validateEmail,
@@ -88,6 +94,8 @@ class SignupScreen extends StatelessWidget {
                     controller: passwordController,
                     labelText: "Enter Password",
                     icon: Iconsax.key,
+                    focusNode: passwordFocusNode,
+                    onFocus: buttonFocusNode,
                     obscureText: true,
                     suffixIcon: true,
                     validator: FormValidators.validatePassword,
@@ -95,6 +103,7 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(height: 30.h),
                   SubmitButton(
                     text: "Sign Up",
+                    focusNode: buttonFocusNode,
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         context.showSnackBar("signup successful");

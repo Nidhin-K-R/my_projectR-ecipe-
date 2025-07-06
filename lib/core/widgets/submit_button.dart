@@ -7,6 +7,7 @@ class SubmitButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isLoading;
   final Color? backgroundColor;
+  final FocusNode focusNode;
 
   const SubmitButton({
     super.key,
@@ -14,6 +15,7 @@ class SubmitButton extends StatelessWidget {
     required this.onPressed,
     this.isLoading = false,
     this.backgroundColor,
+    required this.focusNode,
   });
 
   @override
@@ -22,6 +24,8 @@ class SubmitButton extends StatelessWidget {
       height: 45.h,
       width: double.infinity,
       child: ElevatedButton(
+        focusNode: focusNode,
+
         style: ElevatedButton.styleFrom(
           foregroundColor: AppColors.surfaceColor,
           backgroundColor: AppColors.primary,

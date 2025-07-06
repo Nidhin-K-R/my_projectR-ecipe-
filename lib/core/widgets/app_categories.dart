@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_project/core/constant/app_colors.dart';
 import 'package:my_project/viewmodel/providers/categories_provider.dart';
+import 'package:my_project/viewmodel/recipe_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 class AppCategories extends StatelessWidget {
@@ -39,6 +40,10 @@ class AppCategories extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
+                  Provider.of<RecipeViewModel>(
+                    context,
+                    listen: false,
+                  ).fetchRecipes();
                   value.changeCategory(-1);
                 },
                 child: Text("See All", style: TextStyle(fontSize: 15.r)),

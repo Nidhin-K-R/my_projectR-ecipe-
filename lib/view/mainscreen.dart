@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:my_project/view/home_screen.dart';
-import 'package:my_project/view/login_screen.dart';
-import 'package:my_project/view/signup_screen.dart';
+import 'package:my_project/view/saved_screen.dart';
+import 'package:my_project/view/settings_screen.dart';
 import 'package:my_project/view/update_password_screen.dart';
 
 class Mainscreen extends StatefulWidget {
@@ -16,9 +16,9 @@ class Mainscreen extends StatefulWidget {
 class _MainscreenState extends State<Mainscreen> {
   List<Widget> Page = [
     HomeScreen(),
-    LoginScreen(),
-    SignupScreen(),
+    SavedScreen(),
     UpdatePasswordScreen(),
+    SettingsScreen(),
   ];
   int selectedIndex = 0;
   @override
@@ -36,14 +36,14 @@ class _MainscreenState extends State<Mainscreen> {
         unselectedItemColor: Colors.grey,
         items: [
           BottomNavigationBarItem(icon: Icon(Iconsax.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Iconsax.login), label: "Login"),
+          BottomNavigationBarItem(icon: Icon(Iconsax.bookmark), label: "saved"),
           BottomNavigationBarItem(
-            icon: Icon(Iconsax.signpost),
-            label: "Signup",
+            icon: Icon(Iconsax.key),
+            label: "NewPassword",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Iconsax.password_check),
-            label: "NewPassword",
+            icon: Icon(Iconsax.setting),
+            label: "settings",
           ),
         ],
       ),

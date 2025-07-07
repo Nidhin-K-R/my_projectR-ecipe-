@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:my_project/core/constant/app_colors.dart';
 import 'package:my_project/core/utils/extension.dart';
 import 'package:my_project/core/utils/form_validators.dart';
 import 'package:my_project/core/widgets/custom_textfields.dart';
@@ -30,7 +31,7 @@ class UpdatePasswordScreen extends StatelessWidget {
                     "New Password",
                     style: TextStyle(
                       fontSize: 30.r,
-                      color: Colors.black,
+                      color: AppColors.nTextColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -40,7 +41,7 @@ class UpdatePasswordScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15.r,
                       fontWeight: FontWeight.w900,
-                      color: Colors.grey,
+                      color: AppColors.subTextColor,
                     ),
                   ),
                   SizedBox(height: 70.h),

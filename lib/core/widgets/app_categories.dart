@@ -36,7 +36,7 @@ class AppCategories extends StatelessWidget {
                   foregroundColor: WidgetStatePropertyAll(
                     value.selectedIndex == -1
                         ? AppColors.primaryVariant
-                        : Colors.black54,
+                        : AppColors.textColorLight,
                   ),
                 ),
                 onPressed: () {
@@ -70,7 +70,7 @@ class AppCategories extends StatelessWidget {
                         elevation: 0,
                         color: value.selectedIndex == index
                             ? AppColors.primaryVariant
-                            : Colors.white,
+                            : AppColors.surfaceColor,
                         child: Image.asset(
                           categoryItems[0][index],
 

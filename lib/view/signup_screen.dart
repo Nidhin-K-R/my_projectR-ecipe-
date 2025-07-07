@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:my_project/core/constant/app_colors.dart';
 import 'package:my_project/core/utils/extension.dart';
 import 'package:my_project/core/utils/form_validators.dart';
 import 'package:my_project/core/widgets/auth_button.dart';
 import 'package:my_project/core/widgets/custom_textfields.dart';
-import 'package:my_project/view/home_screen.dart';
 import 'package:my_project/view/login_screen.dart';
+import 'package:my_project/view/mainscreen.dart';
 import '../core/widgets/submit_button.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -23,6 +24,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -46,7 +48,7 @@ class SignupScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15.r,
                       fontWeight: FontWeight.w900,
-                      color: Colors.grey,
+                      color: AppColors.subTextColor,
                     ),
                   ),
                   SizedBox(height: 70.h),
@@ -109,7 +111,7 @@ class SignupScreen extends StatelessWidget {
                         context.showSnackBar("signup successful");
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (ctx) => HomeScreen()),
+                          MaterialPageRoute(builder: (ctx) => Mainscreen()),
                         );
                       } else {
                         context.showSnackBar("failed", isError: true);
@@ -130,7 +132,7 @@ class SignupScreen extends StatelessWidget {
                       Text(
                         "Or SignUp With",
                         style: TextStyle(
-                          color: Colors.grey.shade500,
+                          color: AppColors.subTextColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -154,7 +156,7 @@ class SignupScreen extends StatelessWidget {
                         "Already have an account?",
                         style: TextStyle(
                           fontSize: 18.r,
-                          color: Colors.black54,
+                          color: AppColors.textColorLight,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -169,7 +171,7 @@ class SignupScreen extends StatelessWidget {
                         child: Text(
                           "LogIn",
                           style: TextStyle(
-                            color: Colors.lightGreen,
+                            color: AppColors.textButtonColor,
                             fontSize: 19.r,
                             fontWeight: FontWeight.bold,
                           ),

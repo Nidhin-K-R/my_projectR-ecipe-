@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:my_project/core/constant/app_colors.dart';
 import 'package:my_project/core/utils/extension.dart';
 import 'package:my_project/core/utils/form_validators.dart';
 import 'package:my_project/core/widgets/auth_button.dart';
 import 'package:my_project/core/widgets/custom_textfields.dart';
 import 'package:my_project/core/widgets/submit_button.dart';
-import 'package:my_project/view/home_screen.dart';
+import 'package:my_project/view/mainscreen.dart';
 import 'package:my_project/view/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -22,6 +23,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -40,7 +42,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Text(
                     "Welcome back you've missed!",
-                    style: TextStyle(fontSize: 20.r, color: Colors.black54),
+                    style: TextStyle(
+                      fontSize: 20.r,
+                      color: AppColors.textColorLight,
+                    ),
                   ),
                   SizedBox(height: 70.h),
                   Text(
@@ -83,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                     child: Text(
                       "Forgot password?",
                       style: TextStyle(
-                        color: Colors.lightGreen,
+                        color: AppColors.textButtonColor,
                         fontSize: 15.r,
                         fontWeight: FontWeight.bold,
                       ),
@@ -98,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                         context.showSnackBar("loggin successful");
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (ctx) => HomeScreen()),
+                          MaterialPageRoute(builder: (ctx) => Mainscreen()),
                         );
                       } else {
                         context.showSnackBar("failed", isError: true);
@@ -110,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Divider(
-                          color: Colors.grey.shade300,
+                          color: AppColors.dividerColor,
                           thickness: 1,
                           indent: 10.w,
                         ),
@@ -119,14 +124,15 @@ class LoginScreen extends StatelessWidget {
                       Text(
                         "Or SignUp With",
                         style: TextStyle(
-                          color: Colors.grey.shade500,
+                          //color: Colors.grey.shade500,
+                          color: AppColors.subTextColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(width: 5.w),
                       Expanded(
                         child: Divider(
-                          color: Colors.grey.shade300,
+                          color: AppColors.dividerColor,
                           thickness: 1,
                           endIndent: 10.w,
                         ),
@@ -144,7 +150,7 @@ class LoginScreen extends StatelessWidget {
                         "Don't have an account?",
                         style: TextStyle(
                           fontSize: 18.r,
-                          color: Colors.black54,
+                          color: AppColors.textColorLight,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -159,7 +165,7 @@ class LoginScreen extends StatelessWidget {
                         child: Text(
                           "SignUp",
                           style: TextStyle(
-                            color: Colors.lightGreen,
+                            color: AppColors.textButtonColor,
                             fontSize: 19.r,
                             fontWeight: FontWeight.bold,
                           ),

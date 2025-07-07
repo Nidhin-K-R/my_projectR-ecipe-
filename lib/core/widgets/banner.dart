@@ -31,14 +31,14 @@ class BannerCard extends StatelessWidget {
                     height: 1.1.h,
                     fontSize: 22.r,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.backgroundColor,
                   ),
                 ),
                 SizedBox(height: 10.h),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 33.w),
-                    backgroundColor: Colors.white,
+                    backgroundColor: AppColors.backgroundColor,
                     foregroundColor: AppColors.primary,
                     elevation: 0,
                   ),

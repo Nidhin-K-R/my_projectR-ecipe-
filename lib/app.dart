@@ -4,7 +4,7 @@ import 'package:my_project/core/service/api_services.dart';
 import 'package:my_project/repository/recipe_repository.dart';
 import 'package:my_project/core/providers/app_providers.dart';
 import 'package:my_project/core/providers/categories_provider.dart';
-import 'package:my_project/view/mainscreen.dart';
+import 'package:my_project/view/signup_screen.dart';
 import 'package:my_project/viewmodel/recipe_viewmodel.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Mainscreen(),
+          home: SignupScreen(),
         ),
       ),
     );

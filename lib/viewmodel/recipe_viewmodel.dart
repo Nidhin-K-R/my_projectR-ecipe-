@@ -22,7 +22,6 @@ class RecipeViewModel extends ChangeNotifier {
 
     try {
       _recipes = await repository.getAllRecipes();
-      notifyListeners();
     } catch (e) {
       _error = e.toString();
     }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:my_project/core/constant/app_colors.dart';
+import 'package:my_project/core/service/auth_service.dart';
 import 'package:my_project/core/utils/extension.dart';
 import 'package:my_project/core/utils/form_validators.dart';
 import 'package:my_project/core/widgets/auth_button.dart';
@@ -109,6 +110,10 @@ class SignupScreen extends StatelessWidget {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         context.showSnackBar("signup successful");
+                        AuthService.regUser(
+                          emailController.text,
+                          passwordController.text,
+                        );
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (ctx) => Mainscreen()),

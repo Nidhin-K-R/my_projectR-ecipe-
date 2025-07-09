@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:my_project/core/constant/app_colors.dart';
+import 'package:my_project/core/service/auth_service.dart';
 import 'package:my_project/core/utils/extension.dart';
 import 'package:my_project/core/utils/form_validators.dart';
 import 'package:my_project/core/widgets/auth_button.dart';
 import 'package:my_project/core/widgets/custom_textfields.dart';
+import 'package:my_project/core/widgets/forgot_password_screen.dart';
 import 'package:my_project/core/widgets/submit_button.dart';
-import 'package:my_project/view/mainscreen.dart';
 import 'package:my_project/view/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -84,7 +85,14 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (ctx) => ForgotPasswordScreen(),
+                        ),
+                      );
+                    },
                     child: Text(
                       "Forgot password?",
                       style: TextStyle(
@@ -100,10 +108,10 @@ class LoginScreen extends StatelessWidget {
                     focusNode: buttonFocusNode,
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        context.showSnackBar("loggin successful");
-                        Navigator.push(
+                        AuthService.logInUser(
+                          emailController.text,
+                          passwordController.text,
                           context,
-                          MaterialPageRoute(builder: (ctx) => Mainscreen()),
                         );
                       } else {
                         context.showSnackBar("failed", isError: true);

@@ -109,9 +109,9 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         AuthService.logInUser(
-                          emailController.text,
-                          passwordController.text,
-                          context,
+                          email: emailController.text,
+                          password: passwordController.text,
+                          context: context,
                         );
                       } else {
                         context.showSnackBar("failed", isError: true);
